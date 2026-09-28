@@ -2,20 +2,86 @@
    This file is already linked from index.html. Write your rules below.
    Start by changing the body background colour and saving, to confirm the link works. */
 /* Set for all pages */
+
+/* Week 3 updates:
+   I added Google Sans from Google Fonts.
+   I set the body and heading font sizes using rem.
+   I added HSL and OKLCH colour palettes in :root.
+   I created a button using the colour palette and added a hover effect with color-mix().
+   I checked the text and background colours with WebAIM.
+   I made the summit text darker because the orange was too light.
+   I also darkened the paragraph text to make it easier to read.
+   All colour combinations now pass the contrast requirements.
+*/
+
 * {
   box-sizing: border-box;
 }
+
+:root {
+   /* HSL Step 1 - darkest */
+--hsl-1: hsl(260, 60%, 20%);
+
+/* HSL Step 2 */
+--hsl-2: hsl(260, 60%, 35%);
+
+/* HSL Step 3 */
+--hsl-3: hsl(260, 60%, 55%);
+
+/* HSL Step 4 - lightest */
+--hsl-4: hsl(260, 60%, 75%);
+
+/* OKLCH Step 1 - darkest */
+--oklch-1: oklch(35% 0.14 290);
+
+/* OKLCH Step 2 */
+--oklch-2: oklch(50% 0.14 290);
+
+/* OKLCH Step 3 */
+--oklch-3: oklch(65% 0.14 290);
+
+/* OKLCH Step 4 - lightest */
+--oklch-4: oklch(80% 0.14 290);
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--hsl-2);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover state using color-mix */
+.button:hover {
+    background-color: color-mix(
+        in hsl,
+        var(--hsl-2) 80%,
+        black
+    );
+}
+
    body {
-   font-family: Arial, sans-serif;
+   font-family: "Google Sans", Arial, sans-serif;
+   font-size: 1rem;
+   line-height: 1.6;
 }
 /* Main heading styles */
    h1{
    color: rgb(46, 46, 124);
+   font-size: 2.5rem;
+   line-height: 1.2;
+   text-wrap: balance;
 }
 /* main subheading styles */
 h2{
    color: rgb(132, 33, 225);
    background-color: rgb(255, 198, 255);
+   font-size: 1.75rem;
+   line-height: 1.3;
+   text-wrap: balance;
 }
 /* main paragraph styles */
 p{
@@ -32,10 +98,12 @@ p{
    color: rgb(0, 0, 0);
 }
 /* id styles */
+/* Contrast fix: changed summit text from orange to dark brown
+   because the original colour did not meet WCAG contrast requirements. */
 #summit{
    background-color: rgb(255, 246, 178);
    font-size: 36px;
-   color: rgb(252, 164, 0);
+   color: rgb(92, 71, 33);
 }
 /* heading and subheading styles */
 h1 , h2{
@@ -43,7 +111,7 @@ h1 , h2{
 }
 /* cascade rules */
 p {
-    color: darkgreen;
+    color: rgb(24, 28, 24);
 }
 /* div styles */
 .card {
